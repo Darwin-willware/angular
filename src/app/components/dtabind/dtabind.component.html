@@ -1,0 +1,103 @@
+<p>dtabind works!</p>
+<hr>
+<app-search [total]="getTotal()"
+[free]="getTotalFree()"
+[busy]="getTotalOnWork()"
+
+(radioButtonChanged) = "onChangebutton($event)"
+(searchtextchanged)="onsearchValuechange($event)"
+>
+<input class = "connector" type="text"[(ngModel)]="searchvalue">
+
+<p class = "ngcon" >place a radius with ng content</p>
+
+</app-search>
+<hr>
+<div >
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>LAST</th>
+                <th>GENDER</th>
+                <th>EMAIL</th>
+                <th>IP</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <ng-container *ngFor = "let item of products" >
+            <tr *ngIf="getsearchvalue ==='' || item.first_name.toLowerCase().includes(getsearchvalue) " [ngStyle] = "{backgroundolor: item.gender === 'Male' ? 'rose' : 'grey'}">
+                <td>{{item.id}}</td>
+                <td>{{item.first_name}}</td>
+                <td>{{item.last_name}}</td>
+                <td [ngStyle] = "{backgroundColor: item.gender === 'Male' ? 'blue' : 'pink'}">
+                    {{item.gender}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.ip_address}}</td>
+                <td *ngIf ="item.status === 'free'; else notify">{{item.status}}</td>
+                <td><ng-template #notify> BUSY</ng-template></td>
+            </tr>
+        </ng-container>
+        
+    </table>
+    
+</div>
+<hr>
+<div>
+    <h1>DATA BIND</h1>
+    <p>{{getdata()|uppercase}}</p>
+    <p>{{slogan|uppercase}}</p>
+    <p [ngClass] = "{fadeout:display}"> HI FROM HIDDEN</p>
+    <button (click) = "closeit()" >HIDE ME</button>
+</div>
+<div class="search-box" [ngClass]="{bgchange: searchvalue == ''}">
+    <span><b>SEARCH:</b></span>
+    <input type="text" (input) = "searchval($event)">
+    <input type="text" [(ngModel)] = "searchvalue">
+    <p *ngIf ="searchvalue != ''"> you have searched for{{"  "+searchvalue}}</p>
+</div>
+<hr>
+<hr>
+<div class="search-box1">
+    <h4>Calculate CTC from Take Home</h4>
+    <input type="number" name="takeHome" placeholder="Enter Take Home over Here"
+    (input)="getval($event)">
+    <button class="btn btn-success" (click)="calculateCtc()">FIND</button>
+    <p>OVERALL CTC ==>{{tds|toNumber|number}} LPA</p>
+</div>
+<hr><hr>
+<hr>
+<div *ngFor = "let item of [1,2,3,4,5,6,7,8,9,10]">
+    <li>{{item}}</li>
+</div>
+<div >
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>LAST</th>
+                <th>GENDER</th>
+                <th>EMAIL</th>
+                <th>IP</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <ng-container *ngFor = "let item of products" >
+            <tr *ngIf="countradiobutton ==='All' || countradiobutton === item.status" [ngStyle] = "{backgroundolor: item.gender === 'Male' ? 'rose' : 'grey'}">
+                <td>{{item.id}}</td>
+                <td>{{item.first_name}}</td>
+                <td>{{item.last_name}}</td>
+                <td [ngStyle] = "{backgroundColor: item.gender === 'Male' ? 'blue' : 'pink'}">
+                    {{item.gender}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.ip_address}}</td>
+                <td *ngIf ="item.status === 'free'; else notify">{{item.status}}</td>
+                <td><ng-template #notify> BUSY</ng-template></td>
+            </tr>
+        </ng-container>
+        
+    </table>
+    
+</div>

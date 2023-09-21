@@ -1,0 +1,35 @@
+<div class="input-group">
+    <input type="search" class="form-control rounded" 
+    placeholder="Search" aria-label="Search" aria-describedby="search-addon" 
+    [(ngModel)] = "enteredsearchvalue"
+    (input)="onSearchTextChanged()"/>
+    <button type="button" class="btn btn-outline-primary">search</button>
+  </div>
+  <ng-content class="ngcon"></ng-content>
+  <div class="filter-container">
+    <span>FILTER:</span>
+    <input type="radio" name="filter" value="All" 
+    [(ngModel)]="selectedradioButtonvalue"
+    (change)="onChangebutton()"/>
+    <span>{{'All ('+ all+')'}}</span>
+    <input type="radio" name="filter" value="free" 
+    [(ngModel)]="selectedradioButtonvalue"
+    (change)="onChangebutton()"/>
+    <span>{{'Free ('+ free+')'}}</span>
+    <input type="radio" name="filter" value="onwork" 
+    [(ngModel)]="selectedradioButtonvalue"
+    (change)="onChangebutton()"/>
+    <span>{{'Busy ('+ busy+')'}}</span>
+  </div>
+  <hr>
+  <div>
+    <h3>TEMPLATE REFERENCE VARIABLE</h3>
+  <input type="text" #mytemplatereference (keyup)="0">
+  <button (click)="hiTempRef(mytemplatereference)">TEMPREF</button>
+  <p>{{mytemplatereference.value}}</p>
+  </div>
+  <hr>
+   <h3>{{student.name}}</h3>
+  <button class="btn btn-primary" routerLink="/">home</button>
+  <button class="btn btn-primary" (click)="getMeTo()">users</button>
+  <button class="btn btn-primary">dtabind</button>

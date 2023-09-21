@@ -1,0 +1,30 @@
+<p>viewchildrenl works!</p>
+
+<div class = "container border border-primary d-flex flex-column
+justify-content-center">
+    <br><br>
+    <input class="w-25 p-3 col-xs-2" type="text" placeholder="name" #inputEl>
+    <br><br>
+    <input class="w-25 p-3 col-xs-2" type="number" placeholder="age" #inputEl>
+    <br><br>
+    <input class="w-25 p-3 col-xs-2" type="text" placeholder="email" #inputEl>
+     <br><br>
+    <button class=" btn btn-success w-25 p-3 col-xs-2"
+    (click)="show()">SHOW IT</button>
+    <br><br>
+    <app-contentchildren>
+        <p #para> HI FROM TO LEARN NG CONTENT CHILDREN DECORATOR</p>
+    <p #para> HI FROM TO LEARN NG CONTENT CHILDREN DECORATOR</p>
+    <p #para>HI FROM TO LEARN NG CONTENT CHILDREN DECORATOR</p>
+    <p #para>HI FROM TO LEARN NG CONTENT CHILDREN DECORATOR</p>
+     <br><br>
+     
+     
+     <app-testcontentchildren [name]="'rakesh'"></app-testcontentchildren>
+     <app-testcontentchildren [name]="'rajesh'"></app-testcontentchildren>
+     <app-testcontentchildren [name]="'ram'"></app-testcontentchildren>
+     <app-testcontentchildren [name]="'rocky'"></app-testcontentchildren>
+    </app-contentchildren>
+    <br><br>
+         
+</div>

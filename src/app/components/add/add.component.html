@@ -1,0 +1,47 @@
+<p>add works!</p>
+<div class="add-product">
+    <h1>ADD NEW PRODUCT</h1>
+    <p class ="message-p">{{message}}</p>
+    <form #addproduct = "ngForm" (ngSubmit)="toapi(addproduct.value)" class = "common-form">
+        <input type="text" class="form-input" placeholder="Enter Product name" name="name" ngModel />
+        <input type="text" class="form-input" placeholder="Enter Product price" name="price" ngModel />
+        <input type="text" class="form-input" placeholder="Enter Product Category" name="category" ngModel />
+        <input type="text" class="form-input" placeholder="Enter hotel name" name="color" ngModel />
+        <textarea type="text" class="form-input" placeholder="Enter Product description" name="desc" ngModel ></textarea>
+        <input type="text" class="form-input" placeholder="Enter image url" name="image" ngModel />
+        <button class="btn btn-primary">ADD PRODUCT</button>
+    </form>
+</div>
+<div>
+    <h4>list of data</h4>
+    <input ngModel ={{gendertype}} >
+    <button (Click) = "fromstudent()"> filter</button>
+    <table>
+        <thead>
+            <tr>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>GENDER</th>
+                <th>DOB</th>
+                <th>COURSE</th>
+                <th>MARKS</th>
+                <th>PERCENTAGE</th>
+                <th>FEES</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr *ngFor = "let item of view " >
+                <td>{{item.id}}</td>
+                <td>{{item.name|uppercase}}</td>
+                <td>{{item.gender}}</td>
+                <td>{{item.dob|date:'longDate'|uppercase}}</td>
+                <td>{{item.course|lowercase}}</td>
+                <td>{{item.marks}}</td>
+                <td>{{item.marks | percentage:total}}</td>
+                <td>{{item.fee|currency:'INR': true: '2.2-2'}}</td>
+                <td><button class="btn btn-primary" routerLink="/search"[state]="item">GOTO</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

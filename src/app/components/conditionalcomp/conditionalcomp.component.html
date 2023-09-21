@@ -1,0 +1,11 @@
+<p>conditionalcomp works!</p>
+<div *ngFor="let x of fbposts">
+    <div class="card" [appConditionaldirect]="x.likes === mostlikedpost.likes">
+        <img src={{x.image}} class="card-img-top" alt="Fissure in Sandstone"/>
+        <div class="card-body">
+          <h5 class="card-title">{{x.post}}</h5>
+          <p class="card-text">LIKES{{x.likes}} => DISLIKES {{x.dislikes}}</p>
+          <a href="#!" class="btn btn-primary">Button</a>
+        </div>
+      </div>
+</div>

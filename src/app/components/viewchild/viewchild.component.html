@@ -1,0 +1,19 @@
+<p appHighlight>viewchild works!</p>
+<div>
+    <label > DOB:</label>
+    <input type="date" #dobinput (blur)="calculateAge()">
+</div>
+<div>
+    <label >AGE:</label>
+    <input type="number" #ageinput>
+</div>
+<input type="text" #input>
+<button  (click)="onclick(input)">lifecychook</button>
+<br>
+<button (click)="destroyit()">destroy</button>
+<button (click)="checkout()">checkout</button>
+<app-forvichild [value] = "inputtext" *ngIf="destroy">
+    <h4>NG AFTER CONTENT INIT GET CALLED {{inputtext}} </h4>
+</app-forvichild>
+<!-- {{forvivhicomp.hellofromchildofviewchild()}} -->
+

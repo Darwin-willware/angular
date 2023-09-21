@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Angular</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="navbarNav"
+        mdbCollapse
+        #basicNav=""
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" routerLink=""
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="users"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="search"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="form"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >FORM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="res"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >AUTHRESOLVE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="frag"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >FRAG</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="frag/home"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >fhome</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login" [queryParams]="{logout:true}"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            >logOut</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>

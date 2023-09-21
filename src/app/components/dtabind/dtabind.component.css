@@ -1,0 +1,36 @@
+.search-box{
+    text-align: center;
+    color: aquamarine;
+    
+}
+.bgchange{
+    color: blueviolet;
+    text-align: center;
+}
+.search-box input{
+    margin: 2px 2px;
+    padding: 2px 2px;
+    outline: none;
+    color: aqua;
+    border-color: aqua;
+    border-radius: 7px;
+}
+.fadeout{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity  2s linear;
+}
+.search-box1{
+    text-align: center;
+    color: rgb(32, 198, 254);
+    
+}
+
+.search-box1 input{
+    margin: 2px 2px;
+    padding: 2px 2px;
+    outline: none;
+    color: rgb(9, 11, 11);
+    border-color: rgb(237, 50, 187);
+    border-radius: 7px;
+}

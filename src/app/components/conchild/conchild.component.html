@@ -1,0 +1,64 @@
+<p setbg>conchild parent -- works!</p>
+<p appHighlight appHostbind>conchild parent -- works!</p>
+<p appHover>conchild parent -- works!</p>
+<p appBetterhighlighter [dc]="'orange'" [btc]="'green'">conchild parent -- works!</p>
+<p appClassdirective [display]="{rendcss:true,'change-font':true}">conchild parent -- works!</p>
+<p  [appStyle]="{backgroundColor:checker?'black':'grey',color:'white',border:'red 5px solid'}">coding my own ng style directive </p>
+<button class="btn btn-primary" (click)="ngifngtemplate()"> NGIF</button>
+<div *ngIf="checker; else eelse">
+    <p>hi this is me to check the difference 
+        between ngif with normal div and ng template</p>
+</div>
+<ng-template #eelse>
+    <p>hi i am from else to show if the if condition got failed up</p>
+</ng-template>
+<ng-template [ngIf] = "checker" [ngIfElse]="lse">
+    <p>hi this is me to check the difference 
+        between ngif with normal div and ng template</p>
+</ng-template>
+<ng-template #lse>
+    <p>i am also an else condition from ng template if if the if
+         condition got failed out</p>
+</ng-template>
+<div *appNgifcopy="checker">
+    <p>hi this is me to check the difference 
+        this IS MY OWN NG IF
+        between ngif with normal div and ng template</p>
+</div>
+<ng-template [ngIf] = "checker">
+    <p>hi this is me to check the difference 
+        MY OWN INSIDE NG - TEMPLATE
+        between ngif with normal div and ng template</p>
+</ng-template>
+<div [ngSwitch]="cases">
+    <p *ngSwitchCase="'case1'">case to know more abou ng switchONE</p>
+    <p *ngSwitchCase="'case2'">case to know more abou ng switchTWO</p>
+    <p *ngSwitchCase="'case3'">case to know more abou ng switchTHREE</p>
+    <p *ngSwitchCase="'case4'">case to know more abou ng switchFOUR</p>
+    <p *ngSwitchCase="'case5'">case to know more abou ng switchFIVE</p>
+    <p *ngSwitchDefault>case to know more abou ng switchSIX</p>
+</div>
+<div *ngIf="getoneuser">
+    <h1>ID => {{getoneuser.id}}</h1>
+    <h3>  NAME =>{{getoneuser.name}}</h3>
+    <h4> USERNAME =>{{getoneuser.username}}</h4>
+    <p> EMAIL => {{getoneuser.email}}</p>
+    <p> CITY => {{getoneuser.address.city}}</p>
+    <p> ZIPCODE => {{getoneuser.address.zipcode}}</p>
+    <b>PHONE => {{getoneuser.phone}}</b>
+</div>
+<div *ngFor="let x of userlist">
+    <h1>ID => {{x.id}}</h1>
+    <h3>  NAME =>{{x.name}}</h3>
+    <h4> USERNAME =>{{x.username}}</h4>
+    <p> EMAIL => {{x.email}}</p>
+    <p> CITY => {{x.address.city}}</p>
+    <p> ZIPCODE => {{x.address.zipcode}}</p>
+    <b>PHONE => {{x.phone}}</b>
+    <button (click)="getasingleuser(x.id)">GET USER</button>
+</div>
+<app-svg></app-svg>
+<app-conchild1>
+    <!-- want to access this p element con child1 -->
+    <p #para>HI TO CHECK NG CONTENT</p>
+</app-conchild1>

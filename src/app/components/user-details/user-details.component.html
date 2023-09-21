@@ -1,0 +1,25 @@
+
+
+<div class="card mx-auto" style="width: 18rem;">
+    <img class="card-img-top" src="https://images.pexels.com/photos/5792641/pexels-photo-5792641.jpeg" alt="Card image cap">
+    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{selectedOne.website}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{selectedOne.name}}</h5>
+          <p class="card-text">Some quick example
+             {{selectedOne.address.city}}{{selectedOne.company.name}}
+            text to build on the
+             card title and make up the bulk of the card's content.</p>
+             <a href="#" class="btn btn-primary">{{selectedOne.email}}</a>
+        </div>
+  </div>
+  <button 
+  class="btn btn-secondary" [routerLink]="'/users/ud/'+ (selectedOne.id-1)">
+      prev
+</button>&nbsp;&nbsp;  <button 
+class="btn btn-secondary" [routerLink]="'/users/ud/'+ (selectedOne.id+1)">
+    next
+</button>
+  
+
+  &nbsp;
