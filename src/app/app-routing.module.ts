@@ -16,6 +16,7 @@ import { AuthguardService } from './authguard.service';
 import{logic,resolve} from './authguard';
 import { FormComponent } from './components/form/form.component';
 import { AuthresolveComponent } from './components/authresolve/authresolve.component';
+import { HttpreqComponent } from './components/firebase/httpreq/httpreq.component';
 
 const routes: Routes = [
   {path:'',component:ViewchildComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:'form',component:FormComponent,canDeactivate:[(comp:FormComponent)=>{return comp.canExit()}]},
   {path:'add',component:AddComponent},
   {path:'search',component:SearchComponent},
+  {path:'fire',component:HttpreqComponent},
   {path:'dtabind',component:DtabindComponent},
   {path:'users/ud/:id',component:UserDetailsComponent},
   {path:'users/sd',component:QueryStringComponent},

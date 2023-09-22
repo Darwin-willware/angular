@@ -1,0 +1,61 @@
+<h1>FIREBASE HTTP LEARNING</h1>
+<div class="adjust">
+    <form #addproduct = "ngForm" (ngSubmit)="submit(addproduct.value)" class = "common-form">
+        <input type="text" class="form-input" placeholder="Enter movie name" name="name" ngModel />
+        <input type="text" class="form-input" placeholder="Enter ticket price" name="price" ngModel />
+        <input type="text" class="form-input" placeholder="Enter genre" name="genre" ngModel />
+        <input type="text" class="form-input" placeholder="Enter lang" name="lang" ngModel />
+        <textarea type="text" class="form-input" placeholder="Enter movie description" name="desc" ngModel ></textarea>
+        <input type="text" class="form-input" placeholder="Enter image url" name="img" ngModel />
+        <button class="form-button">ADD MOVIE</button>
+    </form>
+
+    
+    <table >
+        <thead>
+            <tr>
+            <th>S.NO</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>GENRE</th>
+            <th>LANG</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngIf="display.length < 1 && !isFetching">
+                <td colspan="6">
+                     No Products Available
+                </td>
+            </tr>
+            <tr *ngIf="isFetching"> 
+                <td colspan="6">
+                    <div class="spinner-border text-success"></div>
+                </td>
+            </tr>
+            <tr *ngFor="let x of display;index as i">
+             <td >{{i+1}}</td>
+             <td>{{x.name}}</td>
+             <td>{{x.price}}</td>
+             <td>{{x.genre}}</td>
+             <td>{{x.lang}}</td>
+             <td>
+                <button class="btn btn-warning"
+                (click)="onDelete(x.id)"
+                >Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="padding: 5px; display: flex; ">
+            <button 
+            class="btn btn-success" 
+            style="margin:0 12px"
+            (click)="fetchAll()"
+            >Fetch</button>
+            <button class="btn btn-primary" 
+            style="margin-inline: auto;"
+            (click)="deleteAll()"
+            >RemoveAll</button></div>
+</div>
+<!-- <button  (click)="fetchproducts()">getdata</button> -->
+

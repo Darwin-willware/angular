@@ -41,6 +41,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormComponent } from './components/form/form.component';
 import { AuthresolveComponent } from './components/authresolve/authresolve.component';
+import { HttpreqComponent } from './components/firebase/httpreq/httpreq.component';
   // let me create a unique token for this service class by using
   // InjectionToken class syntax: InjectionToken<servicetype>
   export const HIER_TOKEN = new InjectionToken<HierarchyService>('HIER_SERVICE');
@@ -82,6 +83,7 @@ import { AuthresolveComponent } from './components/authresolve/authresolve.compo
     LoginComponent,
     FormComponent,
     AuthresolveComponent,
+    HttpreqComponent,
   
   ],
   imports: [
