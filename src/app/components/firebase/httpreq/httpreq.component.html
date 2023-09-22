@@ -7,7 +7,7 @@
         <input type="text" class="form-input" placeholder="Enter lang" name="lang" ngModel />
         <textarea type="text" class="form-input" placeholder="Enter movie description" name="desc" ngModel ></textarea>
         <input type="text" class="form-input" placeholder="Enter image url" name="img" ngModel />
-        <button class="form-button">ADD MOVIE</button>
+        <input type="submit" class="form-button" value="{{editMode? 'UPDATE MOVIE' : 'ADD MOVIE'}}"/>
     </form>
 
     
@@ -23,12 +23,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr  *ngIf="display.length < 1 && !isFetching">
+            <tr  *ngIf="display.length<1 && !isFetching">
                 <td colspan="6">
                      No Products Available
                 </td>
             </tr>
-            <tr *ngIf="isFetching"> 
+            <tr  *ngIf="errorMessage">
+                <td colspan="6">
+                    {{errorMessage}}
+                </td>
+            </tr>
+            <tr *ngIf="isFetching && !errorMessage"> 
                 <td colspan="6">
                     <div class="spinner-border text-success"></div>
                 </td>
@@ -42,7 +47,10 @@
              <td>
                 <button class="btn btn-warning"
                 (click)="onDelete(x.id)"
-                >Delete</button></td>
+                >Delete</button>
+            <button class="btn btn-primary"
+            (click)="onUpdate(x.id)"
+            >Edit</button></td>
             </tr>
         </tbody>
     </table>
@@ -57,5 +65,7 @@
             (click)="deleteAll()"
             >RemoveAll</button></div>
 </div>
+
+<!-- <p>{{errorMessage}}</p> -->
 <!-- <button  (click)="fetchproducts()">getdata</button> -->
 

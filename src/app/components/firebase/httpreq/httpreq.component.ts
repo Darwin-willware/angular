@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import{map} from 'rxjs/operators';
 import { product } from 'src/app/product';
+import { ProductserviceService } from 'src/app/services/productservice.service';
 @Component({
   selector: 'app-httpreq',
   templateUrl: './httpreq.component.html',
@@ -9,49 +11,73 @@ import { product } from 'src/app/product';
 })
 export class HttpreqComponent implements OnInit{
   display:any;
+  editMode:boolean = false;
   isFetching:boolean =false;
-constructor( private http:HttpClient){}
+  currentoneId:any;
+  errorMessage:string = null;
+  @ViewChild('addproduct') form!:NgForm;
+constructor( private http:HttpClient,
+         private service:ProductserviceService
+  ){}
   
 
   ngOnInit(): void {
     this.fetchproducts();
+    console.log("to check over from here");
+    console.log(this.errorMessage);
   }
   submit(data:any){
     console.log(data);
-    const headers = new HttpHeaders({'myheader':'angularhhtp'});
-    this.http.post('https://angularhttp-3bbdc-default-rtdb.firebaseio.com/products.json',
-    data,{headers:headers}
-    )
-    .subscribe((res)=>{console.log(res);});
+    this.service.err.subscribe((x)=>{
+      this.errorMessage = x;
+      console.log(this.errorMessage);
+    })
+    if(!this.editMode){
+      this.service.postit(data);
+    }
+    else{
+      console.log(data);
+      this.service.update( data,this.currentoneId);
+      this.editMode = false;
+    }
+     
   }
   fetchAll(){
     this.fetchproducts();
+    
   }
   private fetchproducts(){
            this.isFetching = true;
-    this.http.get<{[key:string]:product}>('https://angularhttp-3bbdc-default-rtdb.firebaseio.com/products.json')
-    .pipe(map((res)=>{
-      const products = [];
-      for(const key in res){
-        if(res.hasOwnProperty(key)){
-          products.push({...res[key],id:key})
-        }
-        
-      }
-      return products;
-    }))
-    .subscribe((x)=>{
-      
-      this.display = x;
-      console.log(x);
-      this.isFetching= false;
-    })
+           this.service.getall().subscribe((x)=>{
+            this.display =x;
+            this.isFetching = false;
+           },(err)=>{
+            this.errorMessage = err.message;
+            console.log(this.errorMessage);
+            console.log("from error to you");
+           })
   }
   onDelete(id:string){
-    this.http.delete('https://angularhttp-3bbdc-default-rtdb.firebaseio.com/products/'+id+'.json')
-    .subscribe();
+       this.service.deletebyid(id);
   }
   deleteAll(){
-    this.http.delete('https://angularhttp-3bbdc-default-rtdb.firebaseio.com/products.json').subscribe();
+   this.service.deleteAll();
+  }
+  onUpdate(id:any){
+    this.currentoneId = id;
+   let currentOne = this.display.find((x:any)=>{return x.id === id});
+   console.log(currentOne);
+
+   this.form.setValue({
+    name:currentOne.name,
+    price:currentOne.price,
+    genre:currentOne.genre,
+    lang:currentOne.lang,
+    desc:currentOne.desc,
+    img:currentOne.img
+
+   });
+
+   this.editMode = true;
   }
 }
