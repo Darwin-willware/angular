@@ -1,0 +1,75 @@
+<div class="form myform" >
+    <h2 id="registration"> REGISTRATION FORM</h2>
+    <form #addproduct = "ngForm" (ngSubmit)="onSubmit()">
+     <div ngModelGroup = "personalData">
+        <label for="fname">FIRSTNAME</label>
+        <input type="text" id="fname" 
+        placeholder="Enter your name" name="name"  ngModel required #name = "ngModel">
+        <!-- for two way data binding usw[(ngModel)] -->
+        <div >
+            <small *ngIf="name.invalid && name.touched">required One</small>
+        </div>
+        <br>
+        <label for="email">@Email</label>
+        <input type="email" id="email" 
+        placeholder="Enter your Email" name="email" ngModel required email="">
+        <br>
+        <label for="address">Address</label>
+        <input type="text"  id="address" 
+        placeholder="Enter your address" name="address" ngModel>
+        <button (click)="setDefvalue()">SET</button>
+     </div>
+     <br>
+     <label for="country">COUNTRY</label>
+     <select  id="country" name="country" [ngModel] = "defaultC">
+        <option value="India">India</option>
+        <option value="Sri Lanka">Sri Lanka</option>
+        <option value="China">China</option>
+        <option value="Japan">Japan</option>
+     </select>
+     <br>
+     <label for="gender">GENDER:</label>
+     <span *ngFor="let x of gender">
+        <input type="radio" id="{{x.id}}" value="{{x.value}}" name="gender" ngModel>
+        <label for="male">{{x.value}}</label>
+     </span>
+     
+     
+     <br><br>
+     <label for="hobbies">HOBBIES:<i>(Optional)</i></label>
+      <div>
+        <label for="Sports">
+            <input type="checkbox" value="Sports" name="hobbies" ngModel>
+            Sports
+        </label>
+         <label for="Music">
+            <input type="checkbox" value="Music" name="hobbies" ngModel>
+            Music
+        </label>
+         <label for="Movies">
+            <input type="checkbox" value="Movies" name="hobbies" ngModel>
+            Movies
+        </label>
+         <label for="Games">
+            <input type="checkbox" value="Games" name="hobbies" ngModel>
+            Games
+        </label>
+         <label for="Reading">
+            <input type="checkbox" value="Reading" name="hobbies" ngModel>
+            Reading
+        </label>
+      </div>
+     <button  [disabled]="!addproduct.valid">submit</button>
+    </form>
+</div>
+
+<div>
+    NAME:{{name}}
+    EMAIL:{{email}}
+    ADDRESS:{{address}}
+    COUNTRY:{{country}}
+    GENDER:{{gen}}
+    HOBBIES:
+</div>
+
+

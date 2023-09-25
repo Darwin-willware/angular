@@ -1,7 +1,7 @@
 import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import{ HttpClientModule} from '@angular/common/http';
-import{ FormsModule} from '@angular/forms';
+import{ FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +42,9 @@ import { LoginComponent } from './components/login/login.component';
 import { FormComponent } from './components/form/form.component';
 import { AuthresolveComponent } from './components/authresolve/authresolve.component';
 import { HttpreqComponent } from './components/firebase/httpreq/httpreq.component';
+import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { ReactiveOneComponent } from './components/form/reactive-one/reactive-one.component';
+import { TempDrivenFormComponent } from './components/form/temp-driven-form/temp-driven-form.component';
   // let me create a unique token for this service class by using
   // InjectionToken class syntax: InjectionToken<servicetype>
   export const HIER_TOKEN = new InjectionToken<HierarchyService>('HIER_SERVICE');
@@ -84,13 +87,17 @@ import { HttpreqComponent } from './components/firebase/httpreq/httpreq.componen
     FormComponent,
     AuthresolveComponent,
     HttpreqComponent,
+    RxjsComponent,
+    ReactiveOneComponent,
+    TempDrivenFormComponent,
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   // providers: [ HierarchyService],
   //behind the scenes//
