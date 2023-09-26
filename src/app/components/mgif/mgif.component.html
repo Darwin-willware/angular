@@ -1,0 +1,69 @@
+<p>mgif works!</p>
+<div *ngIf="checker; else eelse">
+    <p>hi this is me to check the difference 
+        between ngif with normal div and ng template</p>
+</div>
+<ng-template #eelse>
+    <p>hi i am from else to show if the if condition got failed up</p>
+</ng-template>
+<ng-template [ngIf] = "checker" [ngIfElse]="lse">
+    <p>hi this is me to check the difference 
+        between ngif with normal div and ng template</p>
+</ng-template>
+<ng-template #lse>
+    <p>i am also an else condition from ng template if if the if
+         conditi
+         divon got failed out</p>
+</ng-template>
+
+<div *ngIf = "tester=== 'if';else eel">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ducimus iure perspiciatis! Voluptatem sint laboriosam quis distinctio consequatur quibusdam debitis et! Labore quae id voluptatibus ipsam saepe, ratione enim nisi?</p>
+
+</div>
+<ng-template #eel>
+    <p>to test from else</p>
+</ng-template>
+
+<h1>TO TEST FROM API</h1>
+<div *ngIf = "data.genre === 'fantasy';else eel">
+    <p>I AM FROM IF</p>
+
+</div>
+<div #eel>
+    <p>to test from else</p>
+</div>
+
+<h1>TO TEST FROM API NG CONTAINER</h1>
+<ng-container *ngIf = "data?.genre === 'fantasy';else eel">
+    <p>I AM FROM IF</p>
+
+</ng-container>
+<ng-container #eel>
+    <p>to test from else</p>
+</ng-container>
+
+<h1>TO TEST FROM API NG CONTAINER+TEMPLATE</h1>
+<ng-container *ngIf = "data?.genre === 'fantasy';else eel">
+    <p>I AM FROM IF</p>
+
+</ng-container>
+<ng-template #eel>
+    <p>to test from else</p>
+</ng-template>
+
+<h1>TO TEST FROM API NG TEMPLATE</h1>
+<ng-template [ngIf] = "data?.genre === 'fantasy'" [ngIfElse]="eel">
+    <p>I AM FROM IF</p>
+
+</ng-template>
+<ng-template #eel>
+    <p>to test from else</p>
+</ng-template>
+<h1>TO TEST FROM API NG TEMPLATE with:</h1>
+<ng-template [ngIf] = "text === 'if'" [ngIfElse]="eel">
+    <p>I AM FROM IF</p>
+
+</ng-template>
+<ng-template #eel>
+    <p>to test from else</p>
+</ng-template>

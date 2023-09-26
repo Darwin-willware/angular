@@ -20,6 +20,7 @@ import { HttpreqComponent } from './components/firebase/httpreq/httpreq.componen
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { ReactiveOneComponent } from './components/form/reactive-one/reactive-one.component';
 import { TempDrivenFormComponent } from './components/form/temp-driven-form/temp-driven-form.component';
+import { MgifComponent } from './components/mgif/mgif.component';
 
 const routes: Routes = [
   {path:'',component:ViewchildComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'res',component:AuthresolveComponent,resolve:{Students:resolve}},
   {path:'form',component:FormComponent,canDeactivate:[(comp:FormComponent)=>{return comp.canExit()}]},
   {path:'add',component:AddComponent},
+  {path:'if',component:MgifComponent},
   {path:'tform',component:TempDrivenFormComponent},
   {path:'reactiveform',component:ReactiveOneComponent},
   {path:'search',component:SearchComponent},

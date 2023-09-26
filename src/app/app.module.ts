@@ -45,6 +45,7 @@ import { HttpreqComponent } from './components/firebase/httpreq/httpreq.componen
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { ReactiveOneComponent } from './components/form/reactive-one/reactive-one.component';
 import { TempDrivenFormComponent } from './components/form/temp-driven-form/temp-driven-form.component';
+import { MgifComponent } from './components/mgif/mgif.component';
   // let me create a unique token for this service class by using
   // InjectionToken class syntax: InjectionToken<servicetype>
   export const HIER_TOKEN = new InjectionToken<HierarchyService>('HIER_SERVICE');
@@ -90,6 +91,7 @@ import { TempDrivenFormComponent } from './components/form/temp-driven-form/temp
     RxjsComponent,
     ReactiveOneComponent,
     TempDrivenFormComponent,
+    MgifComponent,
   
   ],
   imports: [
